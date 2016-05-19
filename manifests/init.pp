@@ -2,7 +2,17 @@
 #
 # === ntp documentation
 #
-class ntp inherits ntp::params{
+class ntp (
+            $manage_package = true,
+            $package_ensure = 'installed',
+            $driftfile      = $ntp::params::driftfile_default,
+            $tinker         = $tinker_default,
+            $tinker_panic   = $tinker_panic_default,
+            $servers        = $servers_default,
+            $iburst         = true,
+          ) inherits ntp::params {
+
+  validate_array($servers)
 
   class { '::ntp::install': } ->
   class { '::ntp::config': } ~>

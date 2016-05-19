@@ -1,5 +1,19 @@
 class ntp::params {
 
+  $package_name='ntp'
+  $driftfile_default='/etc/ntp.drift'
+
+  if str2bool($::is_virtual)
+  {
+    $tinker_default = true
+    $tinker_panic_default  = 0
+  }
+  else
+  {
+    $tinker_default = false
+    $tinker_panic_default  = undef
+  }
+
   case $::osfamily
   {
     'redhat':
@@ -8,6 +22,11 @@ class ntp::params {
       {
         /^[5-7].*$/:
         {
+          $servers_default = [
+                              '0.centos.pool.ntp.org',
+                              '1.centos.pool.ntp.org',
+                              '2.centos.pool.ntp.org',
+                              ]
         }
         default: { fail("Unsupported RHEL/CentOS version! - ${::operatingsystemrelease}")  }
       }
@@ -22,6 +41,12 @@ class ntp::params {
           {
             /^14.*$/:
             {
+              $servers_default = [
+                                  '0.debian.pool.ntp.org',
+                                  '1.debian.pool.ntp.org',
+                                  '2.debian.pool.ntp.org',
+                                  '3.debian.pool.ntp.org',
+                                  ]
             }
             default: { fail("Unsupported Ubuntu version! - ${::operatingsystemrelease}")  }
           }
