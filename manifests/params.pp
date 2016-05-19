@@ -1,6 +1,7 @@
 class ntp::params {
 
   $package_name='ntp'
+
   $driftfile_default='/etc/ntp.drift'
 
   if str2bool($::is_virtual)
@@ -18,6 +19,8 @@ class ntp::params {
   {
     'redhat':
     {
+      $service_name='ntpd'
+
       case $::operatingsystemrelease
       {
         /^[5-7].*$/:
@@ -33,6 +36,8 @@ class ntp::params {
     }
     'Debian':
     {
+      $service_name='ntp'
+
       case $::operatingsystem
       {
         'Ubuntu':
