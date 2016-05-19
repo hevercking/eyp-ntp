@@ -5,12 +5,12 @@ _operatingsystemrelease = fact('operatingsystemrelease').to_f
 
 case _osfamily
 when 'RedHat'
-  $examplevar = 'valrh'
+  $ntpservice = 'ntpd'
 
 when 'Debian'
-  $examplevar = 'valdeb'
+  $ntpservice = 'ntp'
 
 else
-  $examplevar = '-_-'
+  $ntpservice = '-_-'
 
 end

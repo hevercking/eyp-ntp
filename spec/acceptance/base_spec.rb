@@ -27,7 +27,7 @@ describe 'ntp class' do
       it { is_expected.to be_installed }
     end
 
-    describe service('ntp') do
+    describe service($ntpservice) do
       it { should be_enabled }
       it { is_expected.to be_running }
     end
