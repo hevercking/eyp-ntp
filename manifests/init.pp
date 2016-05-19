@@ -10,6 +10,10 @@ class ntp (
             $tinker_panic   = $tinker_panic_default,
             $servers        = $servers_default,
             $iburst         = true,
+            $manage_service = true,
+            $manage_docker_service = true,
+            $service_ensure = 'running',
+            $service_enable = true,
           ) inherits ntp::params {
 
   validate_array($servers)
