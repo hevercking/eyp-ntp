@@ -17,56 +17,72 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+Installs, configures, and manages the NTP service.
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
-
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+The ntp module handles installing, configuring, and running NTP.
 
 ## Setup
 
 ### What ntp affects
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
+* NTP config file: /etc/ntp.conf
+* ntp package
+* ntp service
 
 ### Setup Requirements
 
-This module requires pluginsync enabled 
+This module requires pluginsync enabled
 
 ### Beginning with ntp
 
-The very basic steps needed for a user to get the module up and running.
+This module setups NTP to use a given set of servers (it also has some default servers).
 
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+If this module is used on a VM, by default, it will set tinker panic to 0
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+basic usage:
+
+```puppet
+	class { 'ntp':
+    servers = [
+                '1.ie.pool.ntp.org',
+            	   '0.europe.pool.ntp.org',
+            	   '3.europe.pool.ntp.org'
+                 ]
+  }
+```
 
 ## Reference
 
-Here, list the classes, types, providers, facts, etc contained in your module.
-This section should include all of the under-the-hood workings of your module so
-people know what the module is touching on their system but don't need to mess
-with things. (We are working on automating this section!)
+### classes
+
+#### ntp
+
+* **driftfile**: File to use to record the frequency offset of the local clock oscillator
+* **tinker**: Enables or disables system variables used by the clock discipline algorithm.
+* **tinker_panic**: Specifies the panic threshold in seconds. If set to zero, the panic sanity check is disabled and a clock offset of any value will be accepted.
+* **servers**:: List of servers to use
+* **iburst**: When  the  server is unreachable, send a burst of eight packets instead of the usual one (default: true)
+* management options:
+  * **manage_package**: Package management (default: true)
+  * **package_ensure**: Package status: (default: installed)
+  * **manage_service**: Service management (default: true)
+  * **manage_docker_service**: Service management on docker containers (default: true)
+  * **service_ensure**: Service status: (default: running)
+  * **service_enable**: Service enabled on startup: (default: true)
+
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+Tested on:
+
+* CentOS 5
+* CentOS 6
+* CentOS 7
+* Ubunutu 14.04
 
 ## Development
 
