@@ -45,5 +45,7 @@ describe 'ntp class' do
       its(:content) { should match 'restrict ::1' }
     end
 
+    #potser ntpq -p | grep ^*
+
   end
 end

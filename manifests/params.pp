@@ -60,6 +60,32 @@ class ntp::params {
         default: { fail('Unsupported Debian flavour!')  }
       }
     }
+    'Suse':
+    {
+      $service_name='ntp'
+
+      case $::operatingsystem
+      {
+        'SLES':
+        {
+          case $::operatingsystemrelease
+          {
+            '11.3':
+            {
+              # pool.ntp.org
+              $servers_default = [
+                                  '0.europe.pool.ntp.org',
+                                  '1.europe.pool.ntp.org',
+                                  '2.europe.pool.ntp.org',
+                                  '3.europe.pool.ntp.org'
+                                  ]
+            }
+            default: { fail("Unsupported operating system ${::operatingsystem} ${::operatingsystemrelease}") }
+          }
+        }
+        default: { fail("Unsupported operating system ${::operatingsystem}") }
+      }
+    }
     default: { fail('Unsupported OS!')  }
   }
 }
