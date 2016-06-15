@@ -1,6 +1,6 @@
 {
   "name": "eyp-ntp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "eyp",
   "summary": "Installs, configures, and manages the NTP service",
   "license": "Apache-2.0",
@@ -35,6 +35,10 @@
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [ "14.04" ]
+    },
+    {
+      "operatingsystem": "SLES",
+      "operatingsystemrelease": [ "11.3" ]
     }
   ],
   "requirements": [
