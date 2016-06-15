@@ -83,6 +83,7 @@ Tested on:
 * CentOS 6
 * CentOS 7
 * Ubunutu 14.04
+* SLES 11 SP3
 
 ## Development
 
@@ -91,7 +92,7 @@ have some test to check both presence and absence of any feature
 
 ### TODO
 
-TODO list
+Nothing yet
 
 ### Contributing
 
