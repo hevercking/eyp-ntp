@@ -1,4 +1,4 @@
-# ntp
+# ntp ![status ready](https://img.shields.io/badge/status-ready-brightgreen.svg)
 
 #### Table of Contents
 
