@@ -21,21 +21,21 @@ class ntp::params {
       $driftfile_default='/var/lib/ntp/drift'
 
       $restrict_ipv4_default = [
-                          'default',
-                          'kod',
-                          'notrap',
-                          'nomodify',
-                          'nopeer',
-                          'noquery',
-                        ]
+                                'default',
+                                'kod',
+                                'notrap',
+                                'nomodify',
+                                'nopeer',
+                                'noquery',
+                              ]
       $restrict_ipv6_default = [
-                          'default',
-                          'kod',
-                          'notrap',
-                          'nomodify',
-                          'nopeer',
-                          'noquery',
-                        ]
+                                'default',
+                                'kod',
+                                'notrap',
+                                'nomodify',
+                                'nopeer',
+                                'noquery',
+                              ]
 
       case $::operatingsystemrelease
       {
