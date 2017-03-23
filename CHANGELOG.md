@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.7
+
+* bugfix servers
+
 ## 0.1.6
 
 * typo restrict ipv6
