@@ -3,6 +3,7 @@
 ## 0.1.6
 
 * typo restrict ipv6
+* added default statistics only if **statsdir** is defined
 
 ## 0.1.5
 

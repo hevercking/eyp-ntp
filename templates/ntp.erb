@@ -27,3 +27,13 @@ server <%= server %><% if @iburst %> iburst<% end %>
 <% end -%>
 
 driftfile <%= @driftfile %>
+
+<% if defined?(@statsdir) -%>
+# stats
+statsdir /var/log/ntpstats/
+
+statistics loopstats peerstats clockstats
+filegen loopstats file loopstats type day enable
+filegen peerstats file peerstats type day enable
+filegen clockstats file clockstats type day enable
+<% end -%>
