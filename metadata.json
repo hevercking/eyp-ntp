@@ -1,6 +1,6 @@
 {
   "name": "eyp-ntp",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "author": "eyp",
   "summary": "Installs, configures, and manages the NTP service",
   "license": "Apache-2.0",
@@ -42,10 +42,6 @@
     }
   ],
   "requirements": [
-    {
-      "name": "pe",
-      "version_requirement": ">= 3.0.0"
-    },
     {
       "name": "puppet",
       "version_requirement": ">= 3.0.0"

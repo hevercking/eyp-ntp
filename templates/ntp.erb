@@ -12,7 +12,7 @@ tinker<% if @tinker_panic -%> panic <%= @tinker_panic %><% end %>
 restrict -4 <%= @restrict_ipv4.join(' ') %>
 <% end -%>
 <% if ! @restrict_ipv6.empty? -%>
-restrict -4 <%= @restrict_ipv6.join(' ') %>
+restrict -6 <%= @restrict_ipv6.join(' ') %>
 <% end -%>
 <% if ! @restrict.empty? -%>
 <% @restrict.each do |val| -%>
@@ -20,8 +20,20 @@ restrict <%= val %>
 <% end -%>
 <% end -%>
 
+<% if ! @server.empty? -%>
 <% [@servers].flatten.each do |server| -%>
 server <%= server %><% if @iburst %> iburst<% end %>
 <% end -%>
+<% end -%>
 
 driftfile <%= @driftfile %>
+
+<% if defined?(@statsdir) -%>
+# stats
+statsdir /var/log/ntpstats/
+
+statistics loopstats peerstats clockstats
+filegen loopstats file loopstats type day enable
+filegen peerstats file peerstats type day enable
+filegen clockstats file clockstats type day enable
+<% end -%>

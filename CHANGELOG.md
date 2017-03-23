@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.1.6
+
+* typo restrict ipv6
+* added default statistics only if **statsdir** is defined
+
+## 0.1.5
+
+* allow **ntp::servers** variable to be empty
+* changed driftfile for Ubuntu
+
 ## 0.1.4
 
 * added a variable to be able to restrict access

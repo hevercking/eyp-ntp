@@ -6,9 +6,9 @@ class ntp (
             $manage_package        = true,
             $package_ensure        = 'installed',
             $driftfile             = $ntp::params::driftfile_default,
-            $tinker                = $tinker_default,
-            $tinker_panic          = $tinker_panic_default,
-            $servers               = $servers_default,
+            $tinker                = $ntp::params::tinker_default,
+            $tinker_panic          = $ntp::params::tinker_panic_default,
+            $servers               = $ntp::params::servers_default,
             $iburst                = true,
             $manage_service        = true,
             $manage_docker_service = true,
@@ -17,6 +17,7 @@ class ntp (
             $restrict              = [ '127.0.0.1', '::1' ],
             $restrict_ipv4         = $ntp::params::restrict_ipv4_default,
             $restrict_ipv6         = $ntp::params::restrict_ipv6_default,
+            $statsdir              = undef,
           ) inherits ntp::params {
 
   validate_array($servers)
