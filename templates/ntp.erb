@@ -20,7 +20,7 @@ restrict <%= val %>
 <% end -%>
 <% end -%>
 
-<% if ! @server.empty? -%>
+<% if ! @servers.empty? -%>
 <% [@servers].flatten.each do |server| -%>
 server <%= server %><% if @iburst %> iburst<% end %>
 <% end -%>
