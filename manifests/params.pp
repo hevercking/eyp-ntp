@@ -44,7 +44,7 @@ class ntp::params {
         {
           case $::operatingsystemrelease
           {
-            /^14.*$/:
+            /^1[46].*$/:
             {
               $servers_default = [
                                   '0.debian.pool.ntp.org',
