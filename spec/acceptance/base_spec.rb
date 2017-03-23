@@ -39,8 +39,8 @@ describe 'ntp class' do
       its(:content) { should match 'server 0.europe.pool.ntp.org iburst' }
       its(:content) { should match 'server 3.europe.pool.ntp.org iburst' }
       its(:content) { should match 'driftfile' }
-      its(:content) { should match 'restrict -4 default kod nomodify notrap nopeer noquery' }
-      its(:content) { should match 'restrict -6 default kod nomodify notrap nopeer noquery' }
+      its(:content) { should match 'restrict -4 default kod notrap nomodify nopeer noquery' }
+      its(:content) { should match 'restrict -6 default kod notrap nomodify nopeer noquery' }
       its(:content) { should match 'restrict 127.0.0.1' }
       its(:content) { should match 'restrict ::1' }
     end
