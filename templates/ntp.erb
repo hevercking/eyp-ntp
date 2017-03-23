@@ -12,7 +12,7 @@ tinker<% if @tinker_panic -%> panic <%= @tinker_panic %><% end %>
 restrict -4 <%= @restrict_ipv4.join(' ') %>
 <% end -%>
 <% if ! @restrict_ipv6.empty? -%>
-restrict -4 <%= @restrict_ipv6.join(' ') %>
+restrict -6 <%= @restrict_ipv6.join(' ') %>
 <% end -%>
 <% if ! @restrict.empty? -%>
 <% @restrict.each do |val| -%>

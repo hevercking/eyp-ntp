@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.6
+
+* typo restrict ipv6
+
 ## 0.1.5
 
 * allow **ntp::servers** variable to be empty
