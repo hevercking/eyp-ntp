@@ -8,8 +8,12 @@
 tinker<% if @tinker_panic -%> panic <%= @tinker_panic %><% end %>
 <% end -%>
 
-restrict -4 default kod nomodify notrap nopeer noquery
-restrict -6 default kod nomodify notrap nopeer noquery
+<% if ! @restrict_ipv4.empty? -%>
+restrict -4 <%= @restrict_ipv4.join(' ') %>
+<% end -%>
+<% if ! @restrict_ipv6.empty? -%>
+restrict -4 <%= @restrict_ipv6.join(' ') %>
+<% end -%>
 <% if ! @restrict.empty? -%>
 <% @restrict.each do |val| -%>
 restrict <%= val %>

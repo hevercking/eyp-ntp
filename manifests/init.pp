@@ -15,6 +15,8 @@ class ntp (
             $service_ensure        = 'running',
             $service_enable        = true,
             $restrict              = [ '127.0.0.1', '::1' ],
+            $restrict_ipv4         = $ntp::params::restrict_ipv4_default,
+            $restrict_ipv6         = $ntp::params::restrict_ipv6_default,
           ) inherits ntp::params {
 
   validate_array($servers)
