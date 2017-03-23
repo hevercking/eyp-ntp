@@ -20,7 +20,7 @@ class ntp::params {
       $service_name='ntpd'
       $driftfile_default='/var/lib/ntp/drift'
 
-      $restrict_ipv4 = [
+      $restrict_ipv4_default = [
                           'default',
                           'kod',
                           'notrap',
@@ -28,7 +28,7 @@ class ntp::params {
                           'nopeer',
                           'noquery',
                         ]
-      $restrict_ipv6 = [
+      $restrict_ipv6_default = [
                           'default',
                           'kod',
                           'notrap',
