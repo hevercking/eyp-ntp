@@ -21,20 +21,20 @@ class ntp::params {
       $driftfile_default='/var/lib/ntp/drift'
 
       $restrict_ipv4 = [
-                          "default",
-                          "kod",
-                          "notrap",
-                          "nomodify",
-                          "nopeer",
-                          "noquery",
+                          'default',
+                          'kod',
+                          'notrap',
+                          'nomodify',
+                          'nopeer',
+                          'noquery',
                         ]
       $restrict_ipv6 = [
-                          "default",
-                          "kod",
-                          "notrap",
-                          "nomodify",
-                          "nopeer",
-                          "noquery",
+                          'default',
+                          'kod',
+                          'notrap',
+                          'nomodify',
+                          'nopeer',
+                          'noquery',
                         ]
 
       case $::operatingsystemrelease
@@ -73,41 +73,41 @@ class ntp::params {
             /^14.*$/:
             {
               $restrict_ipv4_default = [
-                                        "default",
-                                        "kod",
-                                        "notrap",
-                                        "nomodify",
-                                        "nopeer",
-                                        "noquery",
+                                        'default',
+                                        'kod',
+                                        'notrap',
+                                        'nomodify',
+                                        'nopeer',
+                                        'noquery',
                                       ]
               $restrict_ipv6_default = [
-                                        "default",
-                                        "kod",
-                                        "notrap",
-                                        "nomodify",
-                                        "nopeer",
-                                        "noquery",
+                                        'default',
+                                        'kod',
+                                        'notrap',
+                                        'nomodify',
+                                        'nopeer',
+                                        'noquery',
                                       ]
             }
             /^16.*$/:
             {
               $restrict_ipv4_default = [
-                                        "default",
-                                        "kod",
-                                        "notrap",
-                                        "nomodify",
-                                        "nopeer",
-                                        "noquery",
-                                        "limited",
+                                        'default',
+                                        'kod',
+                                        'notrap',
+                                        'nomodify',
+                                        'nopeer',
+                                        'noquery',
+                                        'limited',
                                       ]
               $restrict_ipv6_default = [
-                                        "default",
-                                        "kod",
-                                        "notrap",
-                                        "nomodify",
-                                        "nopeer",
-                                        "noquery",
-                                        "limited",
+                                        'default',
+                                        'kod',
+                                        'notrap',
+                                        'nomodify',
+                                        'nopeer',
+                                        'noquery',
+                                        'limited',
                                       ]
             }
             default: { fail("Unsupported Ubuntu version! - ${::operatingsystemrelease}")  }
@@ -126,20 +126,20 @@ class ntp::params {
         'SLES':
         {
           $restrict_ipv4_default = [
-                                    "default",
-                                    "kod",
-                                    "notrap",
-                                    "nomodify",
-                                    "nopeer",
-                                    "noquery",
+                                    'default',
+                                    'kod',
+                                    'notrap',
+                                    'nomodify',
+                                    'nopeer',
+                                    'noquery',
                                   ]
           $restrict_ipv6_default = [
-                                    "default",
-                                    "kod",
-                                    "notrap",
-                                    "nomodify",
-                                    "nopeer",
-                                    "noquery",
+                                    'default',
+                                    'kod',
+                                    'notrap',
+                                    'nomodify',
+                                    'nopeer',
+                                    'noquery',
                                   ]
           case $::operatingsystemrelease
           {
