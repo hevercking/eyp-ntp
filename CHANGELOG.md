@@ -3,6 +3,7 @@
 ## 0.1.7
 
 * bugfix servers
+* bugfix acceptance testing
 
 ## 0.1.6
 
