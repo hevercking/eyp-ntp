@@ -20,8 +20,10 @@ restrict <%= val %>
 <% end -%>
 <% end -%>
 
+<% if ! @server.empty? -%>
 <% [@servers].flatten.each do |server| -%>
 server <%= server %><% if @iburst %> iburst<% end %>
+<% end -%>
 <% end -%>
 
 driftfile <%= @driftfile %>
