@@ -3,6 +3,7 @@
 ## 0.1.5
 
 * allow **ntp::servers** variable to be empty
+* changed driftfile for Ubuntu
 
 ## 0.1.4
 

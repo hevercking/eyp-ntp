@@ -53,7 +53,7 @@ class ntp::params {
     'Debian':
     {
       $service_name='ntp'
-      $driftfile_default='/etc/ntp.drift'
+      $driftfile_default='/var/lib/ntp/ntp.drift'
 
       case $::operatingsystem
       {
