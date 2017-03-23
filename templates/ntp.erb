@@ -10,8 +10,11 @@ tinker<% if @tinker_panic -%> panic <%= @tinker_panic %><% end %>
 
 restrict -4 default kod nomodify notrap nopeer noquery
 restrict -6 default kod nomodify notrap nopeer noquery
-restrict 127.0.0.1
-restrict ::1
+<% if ! @restrict.empty? -%>
+<% @restrict.each do |val| -%>
+restrict <%= val %>
+<% end -%>
+<% end -%>
 
 <% [@servers].flatten.each do |server| -%>
 server <%= server %><% if @iburst %> iburst<% end %>

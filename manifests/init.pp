@@ -14,6 +14,7 @@ class ntp (
             $manage_docker_service = true,
             $service_ensure        = 'running',
             $service_enable        = true,
+            $restrict              = [ '127.0.0.1', '::1' ],
           ) inherits ntp::params {
 
   validate_array($servers)
