@@ -20,6 +20,23 @@ class ntp::params {
       $service_name='ntpd'
       $driftfile_default='/var/lib/ntp/drift'
 
+      $restrict_ipv4 = [
+                          "default",
+                          "kod",
+                          "notrap",
+                          "nomodify",
+                          "nopeer",
+                          "noquery",
+                        ]
+      $restrict_ipv6 = [
+                          "default",
+                          "kod",
+                          "notrap",
+                          "nomodify",
+                          "nopeer",
+                          "noquery",
+                        ]
+
       case $::operatingsystemrelease
       {
         /^[5-7].*$/:
@@ -42,16 +59,56 @@ class ntp::params {
       {
         'Ubuntu':
         {
+          $servers_default = [
+                              '0.debian.pool.ntp.org',
+                              '1.debian.pool.ntp.org',
+                              '2.debian.pool.ntp.org',
+                              '3.debian.pool.ntp.org',
+                              ]
+
           case $::operatingsystemrelease
           {
+            # -restrict -4 default kod notrap nomodify nopeer noquery limited
+            # -restrict -6 default kod notrap nomodify nopeer noquery limited
             /^14.*$/:
             {
-              $servers_default = [
-                                  '0.debian.pool.ntp.org',
-                                  '1.debian.pool.ntp.org',
-                                  '2.debian.pool.ntp.org',
-                                  '3.debian.pool.ntp.org',
-                                  ]
+              $restrict_ipv4_default = [
+                                        "default",
+                                        "kod",
+                                        "notrap",
+                                        "nomodify",
+                                        "nopeer",
+                                        "noquery",
+                                      ]
+              $restrict_ipv6_default = [
+                                        "default",
+                                        "kod",
+                                        "notrap",
+                                        "nomodify",
+                                        "nopeer",
+                                        "noquery",
+                                      ]
+            }
+            /^16.*$/:
+            {
+              $restrict_ipv4_default = [
+                                        "default",
+                                        "kod",
+                                        "notrap",
+                                        "nomodify",
+                                        "nopeer",
+                                        "noquery",
+                                        "limited",
+                                      ]
+              $restrict_ipv6_default = [
+                                        "default",
+                                        "kod",
+                                        "notrap",
+                                        "nomodify",
+                                        "nopeer",
+                                        "noquery",
+                                        "limited",
+                                      ]
             }
             default: { fail("Unsupported Ubuntu version! - ${::operatingsystemrelease}")  }
           }
@@ -68,6 +125,22 @@ class ntp::params {
       {
         'SLES':
         {
+          $restrict_ipv4_default = [
+                                    "default",
+                                    "kod",
+                                    "notrap",
+                                    "nomodify",
+                                    "nopeer",
+                                    "noquery",
+                                  ]
+          $restrict_ipv6_default = [
+                                    "default",
+                                    "kod",
+                                    "notrap",
+                                    "nomodify",
+                                    "nopeer",
+                                    "noquery",
+                                  ]
           case $::operatingsystemrelease
           {
             '11.3':
