@@ -37,17 +37,39 @@ class ntp::params {
                                 'noquery',
                               ]
 
-      case $::operatingsystemrelease
+      case $::operatingsystem
       {
-        /^[5-7].*$/:
+        'RedHat':
         {
-          $servers_default = [
-                              '0.centos.pool.ntp.org',
-                              '1.centos.pool.ntp.org',
-                              '2.centos.pool.ntp.org',
-                              ]
+          case $::operatingsystemrelease
+          {
+            /^[5-7].*$/:
+            {
+              $servers_default = [
+                                  '0.rhel.pool.ntp.org',
+                                  '1.rhel.pool.ntp.org',
+                                  '2.rhel.pool.ntp.org',
+                                  '3.rhel.pool.ntp.org',
+                                  ]
+            }
+            default: { fail("Unsupported RHEL version! - ${::operatingsystemrelease}")  }
+          }
         }
-        default: { fail("Unsupported RHEL/CentOS version! - ${::operatingsystemrelease}")  }
+        default:
+        {
+          case $::operatingsystemrelease
+          {
+            /^[5-7].*$/:
+            {
+              $servers_default = [
+                                  '0.centos.pool.ntp.org',
+                                  '1.centos.pool.ntp.org',
+                                  '2.centos.pool.ntp.org',
+                                  ]
+            }
+            default: { fail("Unsupported CentOS version! - ${::operatingsystemrelease}")  }
+          }
+        }
       }
     }
     'Debian':
