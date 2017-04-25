@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.9
+
+* bugfix: custom **statsdir**
+
 ## 0.1.8
 
 * added custom default servers for **RHEL**
