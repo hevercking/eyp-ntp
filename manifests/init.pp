@@ -21,7 +21,7 @@ class ntp (
             $force_ntpd            = false,
           ) inherits ntp::params {
 
-  if($force_ntpd || !$ntp::params::systemd_timesync_available)
+  if($force_ntpd or !$ntp::params::systemd_timesync_available)
   {
     class { '::ntp::install': } ->
     class { '::ntp::config': } ~>
