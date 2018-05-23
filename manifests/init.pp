@@ -18,10 +18,10 @@ class ntp (
             $restrict_ipv4         = $ntp::params::restrict_ipv4_default,
             $restrict_ipv6         = $ntp::params::restrict_ipv6_default,
             $statsdir              = undef,
-            $force_ntp             = false,
+            $force_ntpd            = false,
           ) inherits ntp::params {
 
-  if($force_ntp || !$ntp::params::systemd_timesync_available)
+  if($force_ntpd || !$ntp::params::systemd_timesync_available)
   {
     class { '::ntp::install': } ->
     class { '::ntp::config': } ~>
@@ -31,7 +31,7 @@ class ntp (
   else
   {
     include ::systemd
-    
+
     class { 'systemd::timesyncd':
       servers => $servers,
     }

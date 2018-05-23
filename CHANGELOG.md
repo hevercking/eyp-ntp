@@ -3,7 +3,7 @@
 ## 0.1.10
 
 * added support for Ubuntu 18.04
-* added timesync as the default NTP client for Ubuntu 18.04, can be enforced to use ntp setting **force_ntp** to true
+* added timesync as the default NTP client for Ubuntu 18.04, can be enforced to use ntp setting **force_ntpd** to true
 
 ## 0.1.9
 
