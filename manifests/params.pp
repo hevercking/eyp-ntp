@@ -191,7 +191,7 @@ class ntp::params {
                                   ]
           case $::operatingsystemrelease
           {
-            '11.3':
+            /^1[12].3$/:
             {
               # pool.ntp.org
               $servers_default = [
