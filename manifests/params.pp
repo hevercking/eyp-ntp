@@ -17,6 +17,7 @@ class ntp::params {
   {
     'redhat':
     {
+      $systemd_timesync_available=false
       $service_name='ntpd'
       $driftfile_default='/var/lib/ntp/drift'
 
@@ -94,6 +95,7 @@ class ntp::params {
             # -restrict -6 default kod notrap nomodify nopeer noquery limited
             /^14.*$/:
             {
+              $systemd_timesync_available=false
               $restrict_ipv4_default = [
                                         'default',
                                         'kod',
@@ -113,6 +115,29 @@ class ntp::params {
             }
             /^16.*$/:
             {
+              $systemd_timesync_available=false
+              $restrict_ipv4_default = [
+                                        'default',
+                                        'kod',
+                                        'notrap',
+                                        'nomodify',
+                                        'nopeer',
+                                        'noquery',
+                                        'limited',
+                                      ]
+              $restrict_ipv6_default = [
+                                        'default',
+                                        'kod',
+                                        'notrap',
+                                        'nomodify',
+                                        'nopeer',
+                                        'noquery',
+                                        'limited',
+                                      ]
+            }
+            /^18.*$/:
+            {
+              $systemd_timesync_available=true
               $restrict_ipv4_default = [
                                         'default',
                                         'kod',
@@ -142,6 +167,7 @@ class ntp::params {
     'Suse':
     {
       $service_name='ntp'
+      $systemd_timesync_available=false
 
       case $::operatingsystem
       {
@@ -165,7 +191,7 @@ class ntp::params {
                                   ]
           case $::operatingsystemrelease
           {
-            '11.3':
+            /^1[12].3$/:
             {
               # pool.ntp.org
               $servers_default = [

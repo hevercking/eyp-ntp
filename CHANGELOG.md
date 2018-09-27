@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 0.1.11
+
+* added support for SLES 12.3
+
+## 0.1.10
+
+* added support for Ubuntu 18.04
+* added timesync as the default NTP client for Ubuntu 18.04, can be enforced to use ntp setting **force_ntpd** to true
+
+## 0.1.9
+
+* bugfix: custom **statsdir**
+
 ## 0.1.8
 
 * added custom default servers for **RHEL**

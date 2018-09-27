@@ -1,4 +1,4 @@
-# ntp ![status ready](https://img.shields.io/badge/status-ready-brightgreen.svg)
+# ntp
 
 #### Table of Contents
 
@@ -21,7 +21,7 @@ Installs, configures, and manages the NTP service.
 
 ## Module Description
 
-The ntp module handles installing, configuring, and running NTP.
+The ntp module handles installing, configuring, and running NTP. For Ubuntu 18.04 by default uses systemd-timesync. To use NTPD instead, just set **force_ntpd** to *true*
 
 ## Setup
 
