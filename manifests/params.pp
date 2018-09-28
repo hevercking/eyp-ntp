@@ -172,7 +172,6 @@ class ntp::params {
       {
         'SLES':
         {
-          $service_name='ntp'
           $restrict_ipv4_default = [
                                     'default',
                                     'kod',
@@ -189,18 +188,22 @@ class ntp::params {
                                     'nopeer',
                                     'noquery',
                                   ]
+          # pool.ntp.org
+          $servers_default = [
+                              '0.europe.pool.ntp.org',
+                              '1.europe.pool.ntp.org',
+                              '2.europe.pool.ntp.org',
+                              '3.europe.pool.ntp.org'
+                              ]
           case $::operatingsystemrelease
           {
-            /^1[12].3$/:
+            '11.3':
+            {
+              $service_name='ntp'
+            }
+            '12.3':
             {
               $service_name='ntpd'
-              # pool.ntp.org
-              $servers_default = [
-                                  '0.europe.pool.ntp.org',
-                                  '1.europe.pool.ntp.org',
-                                  '2.europe.pool.ntp.org',
-                                  '3.europe.pool.ntp.org'
-                                  ]
             }
             default: { fail("Unsupported operating system ${::operatingsystem} ${::operatingsystemrelease}") }
           }
