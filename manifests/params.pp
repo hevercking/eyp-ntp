@@ -166,7 +166,6 @@ class ntp::params {
     }
     'Suse':
     {
-      $service_name='ntp'
       $systemd_timesync_available=false
 
       case $::operatingsystem
@@ -189,17 +188,22 @@ class ntp::params {
                                     'nopeer',
                                     'noquery',
                                   ]
+          # pool.ntp.org
+          $servers_default = [
+                              '0.europe.pool.ntp.org',
+                              '1.europe.pool.ntp.org',
+                              '2.europe.pool.ntp.org',
+                              '3.europe.pool.ntp.org'
+                              ]
           case $::operatingsystemrelease
           {
-            /^1[12].3$/:
+            '11.3':
             {
-              # pool.ntp.org
-              $servers_default = [
-                                  '0.europe.pool.ntp.org',
-                                  '1.europe.pool.ntp.org',
-                                  '2.europe.pool.ntp.org',
-                                  '3.europe.pool.ntp.org'
-                                  ]
+              $service_name='ntp'
+            }
+            '12.3':
+            {
+              $service_name='ntpd'
             }
             default: { fail("Unsupported operating system ${::operatingsystem} ${::operatingsystemrelease}") }
           }
