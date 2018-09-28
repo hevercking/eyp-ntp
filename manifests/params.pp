@@ -166,13 +166,13 @@ class ntp::params {
     }
     'Suse':
     {
-      $service_name='ntp'
       $systemd_timesync_available=false
 
       case $::operatingsystem
       {
         'SLES':
         {
+          $service_name='ntp'
           $restrict_ipv4_default = [
                                     'default',
                                     'kod',
@@ -193,6 +193,7 @@ class ntp::params {
           {
             /^1[12].3$/:
             {
+              $service_name='ntpd'
               # pool.ntp.org
               $servers_default = [
                                   '0.europe.pool.ntp.org',
