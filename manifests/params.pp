@@ -202,7 +202,7 @@ class ntp::params {
             {
               $service_name='ntp'
             }
-            '12.3':
+            /^12.[34]/:
             {
               $service_name='ntpd'
             }
