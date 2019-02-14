@@ -172,6 +172,7 @@ class ntp::params {
       {
         'SLES':
         {
+          $driftfile_default = '/var/lib/ntp/drift/ntp.drift'
           $restrict_ipv4_default = [
                                     'default',
                                     'kod',
