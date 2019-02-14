@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.12
+
+* bugfix: driftfile SuSE
+
 ## 0.1.11
 
 * added support for SLES 12.3
