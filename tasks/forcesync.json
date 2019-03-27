@@ -1,0 +1,12 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "input_method": "stdin",
+  "description": "force NTP update",
+  "parameters": {
+    "ntpserver": {
+      "description": "NTP server to use",
+      "type": "String[1]"
+    }
+  }
+}
