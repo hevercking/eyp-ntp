@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.14
+
+* Updated metadata for **eyp-systemd 0.2.0**
+
 ## 0.1.13
 
 * added support for SLES 12.4
