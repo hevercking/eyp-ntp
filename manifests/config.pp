@@ -1,7 +1,3 @@
-# == Class: ntp
-#
-# === ntp::config documentation
-#
 class ntp::config inherits ntp {
 
   file { '/etc/ntp.conf':

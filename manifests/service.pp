@@ -1,11 +1,4 @@
-class ntp::service() inherits ntp {
-
-  #
-  validate_bool($ntp::manage_docker_service)
-  validate_bool($ntp::manage_service)
-  validate_bool($ntp::service_enable)
-
-  validate_re($ntp::service_ensure, [ '^running$', '^stopped$' ], "Not a valid daemon status: ${ntp::service_ensure}")
+class ntp::service inherits ntp {
 
   $is_docker_container_var=getvar('::eyp_docker_iscontainer')
   $is_docker_container=str2bool($is_docker_container_var)

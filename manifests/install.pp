@@ -1,7 +1,3 @@
-# == Class: ntp
-#
-# === ntp::install documentation
-#
 class ntp::install inherits ntp {
 
   if($ntp::manage_package)

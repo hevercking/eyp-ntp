@@ -1,6 +1,6 @@
 {
   "name": "eyp-ntp",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "author": "eyp",
   "summary": "Installs, configures, and manages the NTP service",
   "license": "Apache-2.0",

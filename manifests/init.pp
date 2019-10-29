@@ -1,7 +1,3 @@
-# == Class: ntp
-#
-# === ntp documentation
-#
 class ntp (
             $manage_package        = true,
             $package_ensure        = 'installed',
