@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.15
+
+* added ntp::cron using ntpdate
+
 ## 0.1.14
 
 * Updated metadata for **eyp-systemd 0.2.0**
