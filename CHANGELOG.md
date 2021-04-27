@@ -1,9 +1,5 @@
 # CHANGELOG
 
-## 0.1.16
-
-* Added support for RHEL8
-
 ## 0.1.15
 
 * added ntp::cron using ntpdate
