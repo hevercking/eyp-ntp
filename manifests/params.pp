@@ -44,7 +44,7 @@ class ntp::params {
         {
           case $::operatingsystemrelease
           {
-            /^[5-7].*$/:
+            /^[5-8].*$/:
             {
               $servers_default = [
                                   '0.rhel.pool.ntp.org',
@@ -60,7 +60,7 @@ class ntp::params {
         {
           case $::operatingsystemrelease
           {
-            /^[5-7].*$/:
+            /^[5-8].*$/:
             {
               $servers_default = [
                                   '0.centos.pool.ntp.org',
